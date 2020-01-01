@@ -8,8 +8,7 @@ import org.junit.Test;
 
 import static com.ab.collections.lists.ProductFixtures.*;
 import static org.hamcrest.Matchers.contains;
-//import static org.hamcrest.MatcherAssert.assertThat;
-import static org.junit.Assert.*;
+import static org.hamcrest.MatcherAssert.assertThat;
 
 public class ShipmentTest {
     private Shipment shipment = new Shipment();
@@ -18,7 +17,6 @@ public class ShipmentTest {
     public void shouldAddItems() throws Exception{
         shipment.add(door);
         shipment.add(window);
-
 
         assertThat(shipment, contains(door,window));
     }
@@ -29,7 +27,7 @@ public class ShipmentTest {
         shipment.add(window);
         shipment.replace(door,floorPanel);
 
-        assertThat(shipment, contains(door,floorPanel));
+        assertThat(shipment, contains(floorPanel,window));
     }
     @Test
     public void shouldNotReplaceMissingItems() throws Exception{
@@ -45,5 +43,8 @@ public class ShipmentTest {
         shipment.add(floorPanel);
 
         shipment.prepare();
+
+        assertThat(shipment.getHeavyVanProducts(), contains(floorPanel,door));
+        assertThat(shipment.getLightVanProducts(),contains(window));
     }
 }

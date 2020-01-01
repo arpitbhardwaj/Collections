@@ -9,6 +9,7 @@ import java.util.List;
 public class Shipment implements Iterable<Product>{
 
     private static final int LIGHT_VAN_MAX_WEIGHT = 20;
+    private static final int PRODUCT_NOT_PRESENT = -1;
     private final List<Product> products = new ArrayList<>();
 
     private List<Product> lightVanProducts;
@@ -29,12 +30,15 @@ public class Shipment implements Iterable<Product>{
 
     @Override
     public Iterator<Product> iterator() {
-        return null;
+        return products.iterator();
     }
 
     public void replace(Product oldProduct, Product newProduct) {
         final int index = products.indexOf(oldProduct);
-        products.set(index, newProduct);
+        if(index != PRODUCT_NOT_PRESENT){
+            products.set(index, newProduct);
+        }
+
     }
 
     public void prepare() {

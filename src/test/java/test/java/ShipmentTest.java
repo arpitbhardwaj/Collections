@@ -19,6 +19,7 @@ public class ShipmentTest {
         shipment.add(door);
         shipment.add(window);
 
+
         assertThat(shipment, contains(door,window));
     }
 

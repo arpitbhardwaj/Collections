@@ -1,6 +1,6 @@
 package com.ab.collection.maps;
 
-import com.ab.collections.NewProduct;
+import com.ab.collection.model.NewProduct;
 
 import java.util.ArrayList;
 import java.util.Collections;

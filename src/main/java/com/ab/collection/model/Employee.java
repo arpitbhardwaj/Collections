@@ -1,4 +1,4 @@
-package com.ab.collections;
+package com.ab.collection.model;
 
 /**
  * @author Arpit Bhardwaj

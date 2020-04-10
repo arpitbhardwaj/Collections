@@ -1,6 +1,4 @@
-package com.ab.collections.lists;
-
-import com.ab.collections.Employee;
+package com.ab.collection.lists;
 
 import java.util.AbstractList;
 import java.util.List;

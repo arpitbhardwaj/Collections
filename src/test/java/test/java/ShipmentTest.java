@@ -1,12 +1,10 @@
 package test.java;
 
-import com.ab.collections.Product;
-import com.ab.collections.lists.ProductFixtures;
-import com.ab.collections.lists.Shipment;
+import com.ab.collection.lists.Shipment;
 import org.junit.Test;
 
 
-import static com.ab.collections.lists.ProductFixtures.*;
+import static com.ab.collection.lists.ProductFixtures.*;
 import static org.hamcrest.Matchers.contains;
 import static org.hamcrest.MatcherAssert.assertThat;
 

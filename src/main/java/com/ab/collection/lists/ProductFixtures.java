@@ -1,7 +1,7 @@
-package com.ab.collections.lists;
+package com.ab.collection.lists;
 
-import com.ab.collections.Product;
-import com.ab.collections.Supplier;
+import com.ab.collection.model.Product;
+import com.ab.collection.model.Supplier;
 
 public class ProductFixtures {
     public static Product door = new Product("Wooden Door", 35);

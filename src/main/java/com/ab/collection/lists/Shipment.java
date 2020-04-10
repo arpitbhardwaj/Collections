@@ -1,6 +1,6 @@
-package com.ab.collections.lists;
+package com.ab.collection.lists;
 
-import com.ab.collections.Product;
+import com.ab.collection.model.Product;
 
 import java.util.ArrayList;
 import java.util.Iterator;

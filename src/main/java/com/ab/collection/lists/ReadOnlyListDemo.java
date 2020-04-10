@@ -1,6 +1,6 @@
-package com.ab.collections.lists;
+package com.ab.collection.lists;
 
-import com.ab.collections.Employee;
+import com.ab.collection.model.Employee;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -1,4 +1,4 @@
-package com.ab.collections;
+package com.ab.collection.model;
 
 import java.util.Comparator;
 import java.util.Objects;

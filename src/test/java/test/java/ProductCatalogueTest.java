@@ -1,11 +1,9 @@
 package test.java;
 
-import com.ab.collections.Supplier;
-import com.ab.collections.sets.ProductCatalogue;
-import org.junit.After;
+import com.ab.collection.model.sets.ProductCatalogue;
 import org.junit.Test;
 
-import static com.ab.collections.lists.ProductFixtures.*;
+import static com.ab.collection.lists.ProductFixtures.*;
 import static org.hamcrest.Matchers.containsInAnyOrder;
 import static org.junit.Assert.*;
 

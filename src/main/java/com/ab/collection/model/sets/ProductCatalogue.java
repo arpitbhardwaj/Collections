@@ -1,12 +1,11 @@
-package com.ab.collections.sets;
+package com.ab.collection.model.sets;
 
-import com.ab.collections.Product;
-import com.ab.collections.Supplier;
+import com.ab.collection.model.Product;
+import com.ab.collection.model.Supplier;
 
 import java.util.*;
 
-import static com.ab.collections.Product.BY_NAME;
-import static com.ab.collections.Product.BY_WEIGHT;
+import static com.ab.collection.model.Product.BY_WEIGHT;
 
 public class ProductCatalogue implements Iterable<Product> {
 

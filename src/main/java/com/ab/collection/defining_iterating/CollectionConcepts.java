@@ -1,6 +1,6 @@
-package com.ab.collections.defining_iterating;
+package com.ab.collection.defining_iterating;
 
-import com.ab.collections.Product;
+import com.ab.collection.model.Product;
 
 import java.util.ArrayList;
 import java.util.Collection;

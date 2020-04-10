@@ -1,6 +1,6 @@
 package com.ab.collection.enumbased;
 
-import com.ab.collections.Color;
+import com.ab.collection.model.Color;
 
 import java.util.Collections;
 import java.util.EnumSet;

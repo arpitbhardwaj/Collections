@@ -1,4 +1,4 @@
-package com.ab.collections.lists;
+package com.ab.collection.lists;
 
 import java.util.*;
 

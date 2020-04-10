@@ -1,5 +1,7 @@
 package com.ab.collection.util;
 
+import com.ab.collection.model.Worker;
+
 import java.util.*;
 
 /**
@@ -11,6 +13,14 @@ public class Utils {
         for (Map.Entry<K,V> entry:
                 map.entrySet()) {
             System.out.println("Key : " + entry.getKey() + " " + "Value : " + entry.getValue());
+        }
+        System.out.println();
+    }
+
+    public static <T> void printArray(T[] arr){
+        for (T item:
+                arr) {
+            System.out.println(item);
         }
         System.out.println();
     }

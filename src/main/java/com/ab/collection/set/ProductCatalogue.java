@@ -1,4 +1,4 @@
-package com.ab.collection.model.sets;
+package com.ab.collection.set;
 
 import com.ab.collection.model.Product;
 import com.ab.collection.model.Supplier;

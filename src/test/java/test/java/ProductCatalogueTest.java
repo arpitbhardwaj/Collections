@@ -1,6 +1,6 @@
 package test.java;
 
-import com.ab.collection.model.sets.ProductCatalogue;
+import com.ab.collection.set.ProductCatalogue;
 import org.junit.Test;
 
 import static com.ab.collection.lists.ProductFixtures.*;

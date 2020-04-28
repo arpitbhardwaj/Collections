@@ -54,7 +54,7 @@ public class FailSafeFailFast {
 
     private static void failSafeIterators2(List<Integer> arrayList) {
         Iterator<Integer> iterator = arrayList.iterator();
-        arrayList.remove(0);//throws java.lang.ArrayIndexOutOfBoundsException: 0
+        arrayList.remove(0);
         //iterator.remove(); //throws java.lang.UnsupportedOperationException
         //Unlike the fail-fast iterators, these iterators traverse over the clone of the collection.
         while (iterator.hasNext()){

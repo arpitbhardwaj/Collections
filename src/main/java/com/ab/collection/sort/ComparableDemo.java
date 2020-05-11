@@ -5,6 +5,8 @@ import com.ab.collection.util.Utils;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Iterator;
+import java.util.TreeSet;
 
 /**
  * @author Arpit Bhardwaj
@@ -28,5 +30,4 @@ public class ComparableDemo {
 
         Utils.printArray(workerArr);
     }
-
 }

@@ -1,5 +1,6 @@
 package com.ab.collection.advanced;
 
+import java.util.Date;
 import java.util.Map;
 import java.util.WeakHashMap;
 
@@ -15,42 +16,33 @@ import java.util.WeakHashMap;
 
 public class WeakHashMapDemo {
     public static void main(String[] args) throws InterruptedException {
-        final Map<Key,String> weakMap = new WeakHashMap<>();
-
-        Key key1 = new Key("Active");
-        Key key2 = new Key("Inactive");
-
-        weakMap.put(key1,"Active Value");
-        weakMap.put(key2, "Inactive Value");
+        final Map<Person,PersonMetaData> weakMap = new WeakHashMap<>();
+        Person p = new Person();
+        weakMap.put(p,new PersonMetaData());
 
         System.out.println(weakMap.toString());
-
-        key1 = null;
-        System.gc();
-        Thread.sleep(1000);
+        p = null;
+        //System.gc();
+        //Thread.sleep(1000);
         System.out.println(weakMap.toString());
     }
 }
 
-class Key{
-    private String key;
+final class Person{
 
-    public Key(String key) {
-        this.key = key;
-    }
+}
 
-    public String getKey() {
-        return key;
-    }
+class PersonMetaData{
+    Date date;
 
-    public void setKey(String key) {
-        this.key = key;
+    public PersonMetaData() {
+        date = new Date();
     }
 
     @Override
     public String toString() {
-        return "Key{" +
-                "key='" + key + '\'' +
+        return "PersonMetaData{" +
+                "date=" + date +
                 '}';
     }
 }

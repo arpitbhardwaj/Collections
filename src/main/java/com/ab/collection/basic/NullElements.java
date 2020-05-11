@@ -2,6 +2,8 @@ package com.ab.collection.basic;
 
 import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.CopyOnWriteArrayList;
+import java.util.concurrent.CopyOnWriteArraySet;
 
 /**
  * @author Arpit Bhardwaj
@@ -13,6 +15,14 @@ import java.util.concurrent.ConcurrentHashMap;
  * Map: Map you can have null values and at most one null key.
  *
  * Hashtable & ConcurrentHashMap: Do not allow null keys or values is because of multi-threaded environment.
+ *
+ * Below get method code breaks in multithreaded environment
+ *
+ * if (map.contains(key)) {
+ *     return map.get(key);
+ * } else {
+ *     throw new KeyNotFoundException;
+ * }
  */
 public class NullElements {
     public static void main(String[] args) {
@@ -21,6 +31,24 @@ public class NullElements {
         addNullInHashMap();
         addNullInHashTable();
         addNullInConcurrentHashMap();
+        addNullInCopyOnWriteArrayList();
+        addNullInCopyOnWriteArraySet();
+    }
+
+    private static void addNullInCopyOnWriteArraySet() {
+        Set<Object> set = new CopyOnWriteArraySet<>();
+        set.add(null);
+        set.add("string1");
+        set.add(1);
+        System.out.println(set);
+    }
+
+    private static void addNullInCopyOnWriteArrayList() {
+        List<Object> list = new CopyOnWriteArrayList<>();
+        list.add(null);
+        list.add("string1");
+        list.add(1);
+        System.out.println(list);
     }
 
     private static void addNullInConcurrentHashMap() {

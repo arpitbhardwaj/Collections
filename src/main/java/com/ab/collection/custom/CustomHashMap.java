@@ -1,6 +1,7 @@
 package com.ab.collection.custom;
 
 import com.ab.collection.model.Entry;
+import com.ab.collection.model.Student;
 
 /**
  * @author Arpit Bhardwaj
@@ -19,7 +20,7 @@ public class CustomHashMap<K, V> {
         buckets = new Entry[DEFAULT_BUCKET_COUNT];
     }
 
-    public Entry get(K key){
+    public Entry<K, V> get(K key){
         int hash = getSupplementHash(key.hashCode());
         int bucket = getBucketNumber(hash);
         Entry existingEntry = buckets[bucket];
@@ -64,5 +65,19 @@ public class CustomHashMap<K, V> {
 
     private int getBucketNumber(int hash){
         return 0;
+    }
+
+    public static void main(String[] args) {
+        CustomHashMap<Student, String> customHashMap = new CustomHashMap<>();
+        Student e1 = new Student(100, "Niranjan");
+        Student e2 = new Student(102, "Sravan");
+        Student e3 = new Student(104, "Ananth");
+        Student e4 = new Student(106, "Rakesh");
+        Student e5 = new Student(108, "Shashi");
+        customHashMap.put(e1,"dept1");
+        customHashMap.put(e2,"dept2");
+        customHashMap.put(e3,"dept3");
+        customHashMap.put(e4,"dept4");
+        customHashMap.put(e5,"dept5");
     }
 }

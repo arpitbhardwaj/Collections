@@ -11,6 +11,8 @@ import java.util.Iterator;
  *
  * You can see EnumMap.java source and in comments givent that Iterators returned by the collection views are weakly consistent:
  * they will never throw ConcurrentModificationException
+ *
+ * EnumMap works on similar principles, but it uses Object[] to store values while key (index) is implicitly inferred from Enum.ordinal().
  */
 public class EnumMapDemo {
     public enum State{

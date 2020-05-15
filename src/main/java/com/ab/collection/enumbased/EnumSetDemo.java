@@ -19,6 +19,13 @@ import java.util.Set;
  *  i.e. the order on which enum constants are declared, or the order returned by ordinal() method.
  *  An EnumSet iterator is weakly consistent and never throws ConcurrentModificationException
  *
+ *  EnumSet is backed by a bit array. Since the number of different items you can put in EnumSet is known in advance,
+ *  we can simply reserve one bit for each enum value.
+ *
+ * Thus basic operations like exists or add are constant time (just like HashSet) but they simply need to examine or set one bit.
+ * No hashCode() computation. This is why EnumSet is faster.
+ * Also more complex operations like union or easily implemented using bit manipulation techniques.
+ *
  */
 public class EnumSetDemo {
 

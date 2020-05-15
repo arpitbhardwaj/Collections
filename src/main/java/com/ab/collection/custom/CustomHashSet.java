@@ -29,4 +29,19 @@ public class CustomHashSet<E> extends AbstractSet<E> {
     public int size() {
         return map.size();
     }
+
+    public static void main(String[] args) {
+        CustomHashSet<String> customHashSet = new CustomHashSet<>();
+
+        customHashSet.add("India");
+        customHashSet.add("Australia");
+        customHashSet.add("England");
+        customHashSet.add("Australia");
+
+        for (String item:
+                customHashSet) {
+            System.out.println(item);
+        }
+
+    }
 }

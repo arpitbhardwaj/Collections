@@ -8,7 +8,9 @@ package com.ab.collection.model;
 public class Entry<K,V> {
     K key;
     V value;
-    Entry next;
+    Entry<K,V> next;
+    Entry<K,V> before;//used for linked hash map
+    Entry<K,V> after;//used for linked hash map
 
     public Entry(K key, V value) {
         this.key = key;

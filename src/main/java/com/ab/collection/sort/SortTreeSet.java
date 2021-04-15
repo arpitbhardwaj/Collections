@@ -5,6 +5,8 @@ import java.util.TreeSet;
 
 /**
  * @author Arpit Bhardwaj
+ *
+ * TreeSet:orders(sort) the elements during add and uses compareTo method for the same
  */
 public class SortTreeSet {
     private static class Drink implements Comparable{
@@ -13,6 +15,13 @@ public class SortTreeSet {
         public int compareTo(Object o) {
             return 0;
         }
+
+        @Override
+        public String toString() {
+            return "Drink{" +
+                    "name='" + name + '\'' +
+                    '}';
+        }
     }
     public static void main(String[] args) {
         Drink one = new Drink();
@@ -20,13 +29,13 @@ public class SortTreeSet {
         one.name = "Coffee";
         two.name = "tea";
         TreeSet set = new TreeSet();
-        set.add(one);
-        set.add(two);
-        Iterator itr = set.iterator();
-        while (itr.hasNext()){
-            Drink c = (Drink) itr.next();
-            System.out.println(c.name);
-        }
+
+        //in case the element which is getting added doesn't implement comparable interface
+        //add method throws ClassCastException
+        //Exception in thread "main" java.lang.ClassCastException: class com.ab.collection.sort.SortTreeSet$Drink cannot be cast to class java.lang.Comparable
+        System.out.println(set.add(one));
+        System.out.println(set.add(two));//duplicate element
+        set.forEach(System.out::println);
     }
 }
 

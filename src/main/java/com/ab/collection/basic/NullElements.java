@@ -14,6 +14,10 @@ import java.util.concurrent.CopyOnWriteArraySet;
  *
  * Map: Map you can have null values and at most one null key.
  *
+ * TreeSet : Do not allow null values (as it is an ordered set and uses compareTo method internally)
+ *
+ * TreeMap: Do not allow null keys but null values are allowed
+ *
  * Hashtable & ConcurrentHashMap: Do not allow null keys or values is because of multi-threaded environment.
  *
  * Below get method code breaks in multithreaded environment
@@ -28,11 +32,29 @@ public class NullElements {
     public static void main(String[] args) {
         addNullInList();
         addNullInSet();
+        addNullInTreeSet();
         addNullInHashMap();
+        addNullInTreeMap();
         addNullInHashTable();
         addNullInConcurrentHashMap();
         addNullInCopyOnWriteArrayList();
         addNullInCopyOnWriteArraySet();
+
+    }
+
+    private static void addNullInTreeMap() {
+        Map<Object,Object> map = new TreeMap<>();
+        //map.put(null,"String1");//java.lang.NullPointerException
+        map.put("String3",null);
+        map.put("key","value");
+        System.out.println("TreeMap: " + map);
+    }
+
+    private static void addNullInTreeSet() {
+        Set<Object> set = new TreeSet<>();
+        //set.add(null);//java.lang.NullPointerException
+        set.add("string1");
+        System.out.println("TreeSet : " + set);
     }
 
     private static void addNullInCopyOnWriteArraySet() {
@@ -40,7 +62,7 @@ public class NullElements {
         set.add(null);
         set.add("string1");
         set.add(1);
-        System.out.println(set);
+        System.out.println("CopyOnWriteArraySet : " + set);
     }
 
     private static void addNullInCopyOnWriteArrayList() {
@@ -48,7 +70,7 @@ public class NullElements {
         list.add(null);
         list.add("string1");
         list.add(1);
-        System.out.println(list);
+        System.out.println("CopyOnWriteArrayList : " + list);
     }
 
     private static void addNullInConcurrentHashMap() {
@@ -57,7 +79,7 @@ public class NullElements {
         //map.put(null,"String1");//java.lang.NullPointerException
         //map.put("String3",null);//java.lang.NullPointerException
         map.put("key","value");
-        System.out.println(map);
+        System.out.println("ConcurrentHashMap : " + map);
 
     }
 
@@ -67,17 +89,17 @@ public class NullElements {
         //hashtable.put(null,"String1");//java.lang.NullPointerException
         //hashtable.put("String3",null);//java.lang.NullPointerException
         hashtable.put("key","value");
-        System.out.println(hashtable);
+        System.out.println("HashTable: " + hashtable);
     }
 
     private static void addNullInHashMap() {
         Map<Object,Object> map = new HashMap<>();
         map.put(null,null);
-        map.put(null,"String1");
-        map.put(null,"String2");
+        map.put(null,"String1");//replace the above one
+        map.put(null,"String2");//replace the above one
         map.put("String3",null);
         map.put("key","value");
-        System.out.println(map);
+        System.out.println("HashMap: " + map);
     }
 
     private static void addNullInSet() {
@@ -86,7 +108,7 @@ public class NullElements {
         set.add("string1");
         set.add(null);
         set.add(1);
-        System.out.println(set);
+        System.out.println("Set : " + set);
     }
 
     private static void addNullInList() {
@@ -95,6 +117,6 @@ public class NullElements {
         list.add("string1");
         list.add(null);
         list.add(1);
-        System.out.println(list);
+        System.out.println("ArrayList : " + list);
     }
 }

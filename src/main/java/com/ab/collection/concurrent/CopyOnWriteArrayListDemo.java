@@ -12,8 +12,8 @@ import java.util.concurrent.CopyOnWriteArrayList;
  * at certain point both will be synchronized automatically ,which is taken care by JVM.
  * Therefore there is no effect for threads which are performing read operation.
  *
- * Iterator of CopyOnWriteArrayList class can perform only read only and wont perform deletion,
- * otherwise we will get Run-time exception
+ * Iterator of CopyOnWriteArrayList class can perform only read operation
+ * removal operation on iterator, throws java.lang.UnsupportedOperationException
  */
 public class CopyOnWriteArrayListDemo implements Runnable{
 

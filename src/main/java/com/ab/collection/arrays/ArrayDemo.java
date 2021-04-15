@@ -2,6 +2,9 @@ package com.ab.collection.arrays;
 
 import java.util.Arrays;
 
+/**
+ * @author Arpit Bhardwaj
+ */
 public class ArrayDemo {
     public static void main(String[] args) {
         //intialization
@@ -43,9 +46,18 @@ public class ArrayDemo {
 
         int[] arr1 = new int[]{1,2,3};
         int[] arr2 = new int[]{1,2,3};
-        System.out.println(arr1.equals(arr2));
+        System.out.println(arr1.equals(arr2));//equals deliver same result as == (memory address comparison)
+        //same elements in same order comparison
         System.out.println(Arrays.equals(arr1,arr2));
         System.out.println(Arrays.equals(new int[]{1,2}, new int[]{4}));
-        System.out.println(Arrays.equals(new int[]{1,2}, new int[]{4}));
+        //smaller,equal,bigger comparison (Java 11 Addition)
+        //0 if equal,-1 if arr1 is smaller, +1 if arr2 is larger
+        System.out.println(Arrays.compare(new int[]{1,2}, new int[]{1}));
+        System.out.println(Arrays.compare(new int[]{1,2}, new int[]{1,2}));
+        System.out.println(Arrays.compare(new int[]{1,2}, new int[]{1,2,3}));
+        System.out.println(Arrays.compare(new String[]{"abcd"}, new String[]{"ABCD"}));//uppercase is treated as smaller
+        //comparison to find where arrays differ (Java 11 Addition)
+        System.out.println(Arrays.mismatch(new int[]{1,2}, new int[]{1,2,4}));
+
     }
 }

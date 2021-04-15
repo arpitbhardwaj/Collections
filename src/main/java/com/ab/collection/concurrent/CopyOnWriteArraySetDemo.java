@@ -7,8 +7,8 @@ import java.util.concurrent.CopyOnWriteArraySet;
 /**
  * @author Arpit Bhardwaj
  *
- * Iterator of CopyOnWriteArraySet class can perform only read only and wont perform deletion,
- * otherwise we will get Run-time exception
+ * Iterator of CopyOnWriteArraySet class can perform only read operation
+ * removal operation on iterator, throws java.lang.UnsupportedOperationException
  */
 public class CopyOnWriteArraySetDemo {
 

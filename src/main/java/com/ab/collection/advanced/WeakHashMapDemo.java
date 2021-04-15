@@ -22,8 +22,8 @@ public class WeakHashMapDemo {
 
         System.out.println(weakMap.toString());
         p = null;
-        //System.gc();
-        //Thread.sleep(1000);
+        System.gc();
+        Thread.sleep(1000);
         System.out.println(weakMap.toString());
     }
 }

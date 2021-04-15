@@ -30,10 +30,10 @@ public class FailSafeFailFast {
         copyArrayList.add(2);
         copyArrayList.add(3);
 
-        //failFastIterators1(arrayList);
+        failFastIterators1(arrayList);
         //failFastIterators2(arrayList);
         //failSafeIterators1(copyArrayList);
-        failSafeIterators2(copyArrayList);
+        //failSafeIterators2(copyArrayList);
     }
 
     private static void failSafeIterators1(List<Integer> arrayList) {
@@ -56,7 +56,6 @@ public class FailSafeFailFast {
         Iterator<Integer> iterator = arrayList.iterator();
         arrayList.remove(0);
         //iterator.remove(); //throws java.lang.UnsupportedOperationException
-        //Unlike the fail-fast iterators, these iterators traverse over the clone of the collection.
         while (iterator.hasNext()){
             Integer next = iterator.next();
         }
@@ -69,15 +68,27 @@ public class FailSafeFailFast {
 
         while (iterator.hasNext()){
             Integer next = iterator.next();
-            arrayList.remove(next);//throws java.util.ConcurrentModificationException
+            //throws java.util.ConcurrentModificationException
+            arrayList.remove(next);
 
             /*If we remove/add the element using the remove() or add() of iterator instead of collection,
             then in that case no exception will occur. It is because the remove/add methods of iterators
             call the remove/add method of collection internally, and also it reassigns the expectedModCount to new modCount value.*/
 
-            /*if (next == 1){
-                iterator.remove();
-            }*/
+            if (next == 1){
+                //iterator.remove();
+            }
+        }
+
+        //modify collection in for each loop also throws ConcurrentModificationException
+        for (Integer i:
+             arrayList) {
+            //arrayList.remove(i);
+        }
+
+        //classical for loop will not throw any exception on modification but it will not remove all elements as size() is dynamic
+        for (int i = 0; i < arrayList.size(); i++) {
+            //arrayList.remove(i);
         }
 
         System.out.println(arrayList.toString());

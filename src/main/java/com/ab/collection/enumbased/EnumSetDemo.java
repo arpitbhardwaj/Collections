@@ -15,8 +15,8 @@ import java.util.Set;
  * Library itself chooses one of two implementations available depending upon the size of a key universe.
  * RegularEnumSet has chosen if a number of instances are less than 64, otherwise JumboEnumSet is used.
  *
- *  Iterator returned by EnumSet traverse the elements in their natural order,
- *  i.e. the order on which enum constants are declared, or the order returned by ordinal() method.
+ *  Iterator returned by EnumSet traverse the elements in their natural order. As the elements are enum constants hence their natural order defines
+ *  the order on which enum constants are declared under enum class, or the order returned by ordinal() method.
  *  An EnumSet iterator is weakly consistent and never throws ConcurrentModificationException
  *
  *  EnumSet is backed by a bit array. Since the number of different items you can put in EnumSet is known in advance,
@@ -32,13 +32,14 @@ public class EnumSetDemo {
     public static void main(String[] args) {
         EnumSet<Color> yellowSet = EnumSet.of(Color.RED,Color.GREEN);
         drawLine(yellowSet);
-        EnumSet<Color> whiteSet = EnumSet.of(Color.RED,Color.GREEN,Color.BLUE);
-        //drawLine(whiteSet);
+        EnumSet<Color> whiteSet = EnumSet.of(Color.BLUE,Color.RED,Color.GREEN);
+        drawLine(whiteSet);
         EnumSet<Color> pinkSet = EnumSet.of(Color.RED,Color.BLUE);
         drawLine(pinkSet);
 
         //noneOf() returns an empty EnumSet with specified enum type
         Set<Color> synchronizedSet = Collections.synchronizedSet(EnumSet.noneOf(Color.class));
+        System.out.println(synchronizedSet);
         //allOf() method creates an enum set containing all elements of specified enum.
         EnumSet<Color> anotherWhiteSet = EnumSet.allOf(Color.class);
         drawLine(anotherWhiteSet);
@@ -46,9 +47,5 @@ public class EnumSetDemo {
 
     private static void drawLine(EnumSet<Color> colorSet) {
         System.out.println("Colors to draw line : " + colorSet);
-        for (Color color:
-             colorSet) {
-            System.out.println("Drawing line in color : " + color);
-        }
     }
 }

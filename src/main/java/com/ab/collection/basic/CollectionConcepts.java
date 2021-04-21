@@ -1,10 +1,8 @@
-package com.ab.collection.defining_iterating;
+package com.ab.collection.basic;
 
 import com.ab.collection.model.Product;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Iterator;
+import java.util.*;
 
 public class CollectionConcepts {
     public static void main(String[] args) {
@@ -70,6 +68,12 @@ public class CollectionConcepts {
         System.out.println(products.containsAll(otherProducts));
         products.removeAll(otherProducts);
         System.out.println(products);
+
+        //searching and sorting
+        //List<Integer> integerList = List.of(4, 8, 1, 3, 9);//Returns an unmodifiable list
+        List<Integer> integerList = new ArrayList<>(List.of(4, 8, 1, 3, 9));
+        Collections.sort(integerList);//throws UnsupportedOperationException due to unmodifiable list
+        System.out.println(Collections.binarySearch(integerList,10));
 
 
     }

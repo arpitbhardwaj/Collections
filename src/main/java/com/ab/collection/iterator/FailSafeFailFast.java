@@ -30,10 +30,10 @@ public class FailSafeFailFast {
         copyArrayList.add(2);
         copyArrayList.add(3);
 
-        failFastIterators1(arrayList);
+        //failFastIterators1(arrayList);
         //failFastIterators2(arrayList);
         //failSafeIterators1(copyArrayList);
-        //failSafeIterators2(copyArrayList);
+        failSafeIterators2(copyArrayList);
     }
 
     private static void failSafeIterators1(List<Integer> arrayList) {

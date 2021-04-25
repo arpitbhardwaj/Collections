@@ -23,7 +23,9 @@ public class ListDemo {
 
         System.out.println(colors);
 
-        colors.add(1,"blue");
+        colors.add(1,"blue");//throws IndexOutOfBoundsException for invalid indexes
+        //colors.clear();//Removes all of the elements from this list
+        //colors.remove(0);//throws IndexOutOfBoundsException for invalid indexes
 
         System.out.println(colors);
         for (int i = 0; i < colors.size(); i++) {
@@ -119,6 +121,7 @@ public class ListDemo {
         orders.add("o2");
         orders.add("o3");
         System.out.println(orders.get(1));
+
         //methods come from queues
         orders.addFirst("o4");
         orders.addLast("o5");

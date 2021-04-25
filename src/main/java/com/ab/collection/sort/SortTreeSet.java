@@ -31,7 +31,7 @@ public class SortTreeSet {
         TreeSet set = new TreeSet();
 
         //in case the element which is getting added doesn't implement comparable interface
-        //add method throws ClassCastException
+        //add method throws ClassCastException at run time
         //Exception in thread "main" java.lang.ClassCastException: class com.ab.collection.sort.SortTreeSet$Drink cannot be cast to class java.lang.Comparable
         System.out.println(set.add(one));
         System.out.println(set.add(two));//duplicate element

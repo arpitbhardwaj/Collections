@@ -64,7 +64,7 @@ public class ArrayDemo {
         System.out.println(Arrays.compare(new int[]{1,2}, new int[]{1,2}));
         System.out.println(Arrays.compare(new int[]{1,2}, new int[]{1,2,3}));
         System.out.println(Arrays.compare(new String[]{"abcd"}, new String[]{"ABCD"}));//uppercase is treated as smaller
-        //comparison to find where arrays differ (Java 11 Addition)
+        //mismatch() returns the index of the first element that is different.-1 if the arrays are equal
         System.out.println(Arrays.mismatch(new int[]{1,2}, new int[]{1,2,4}));
 
         //all below declaration are valid

@@ -4,6 +4,16 @@ import com.ab.collection.model.Product;
 
 import java.util.*;
 
+/**
+ * @author Arpit Bhardwaj
+ *
+ * The right side of the for-each loop must be one of the following:
+ *
+ * A built-in Java array
+ * An object whose type implements java.lang.Iterable
+ *
+ * Hence Map is not supported in a for-each loop
+ */
 public class CollectionConcepts {
     public static void main(String[] args) {
         Product door = new Product("Wooden Door", 35);

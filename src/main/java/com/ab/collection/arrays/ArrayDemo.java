@@ -4,13 +4,21 @@ import java.util.Arrays;
 
 /**
  * @author Arpit Bhardwaj
+ *
+ *
+Method	    When arrays are the same	When arrays are different
+equals()	true	                    false
+compare()	0	                        Positive or negative number
+mismatch()	-1	                        Zero or positive index
  */
 public class ArrayDemo {
     public static void main(String[] args) {
         //initialization
         int[] ids = new int[10];
         //int[] ids = new int[]{1,2,3,4,5};
-        //int[] ids = {1,2,3,4,5};
+        //int[] ids = {1,2,3,4,5};//anonymous array
+
+        //you can type the [] before or after the name, and adding a space is optional.
         //int []ids = new int[10];
         //int [] ids = new int[10];
         //int ids[] = new int[10];
@@ -60,10 +68,23 @@ public class ArrayDemo {
         System.out.println(Arrays.equals(new int[]{1,2}, new int[]{4}));
         //smaller,equal,bigger comparison (Java 11 Addition)
         //0 if equal,-1 if arr1 is smaller, +1 if arr2 is larger
-        System.out.println(Arrays.compare(new int[]{1,2}, new int[]{1}));
-        System.out.println(Arrays.compare(new int[]{1,2}, new int[]{1,2}));
-        System.out.println(Arrays.compare(new int[]{1,2}, new int[]{1,2,3}));
+        //If both arrays are the same length and have the same values in each spot in the same order, return zero.
+        //If all the elements are the same but the second array has extra elements at the end, return a negative number.
+        //If all the elements are the same but the first array has extra elements at the end, return a positive number.
+        //If the first element that differs is smaller in the first array, return a negative number.
+        //If the first element that differs is larger in the first array, return a positive number.
+        System.out.println(Arrays.compare(new int[]{1,2}, new int[]{1}));//1
+        System.out.println(Arrays.compare(new int[]{1,2}, new int[]{1,2}));//0
+        System.out.println(Arrays.compare(new int[]{1,2}, new int[]{1,2,3}));//-1
+        System.out.println(Arrays.compare(new int[]{2,3}, new int[]{1,3}));//1
+        System.out.println(Arrays.compare(new int[]{1,2}, new int[]{2,3}));//-1
+        //null is smaller than any other value.
+        //For numbers, normal numeric order applies.
+        //For strings, one is smaller if it is a prefix of another.
+        //For strings/characters, numbers are smaller than letters.
+        //For strings/characters, uppercase is smaller than lowercase.
         System.out.println(Arrays.compare(new String[]{"abcd"}, new String[]{"ABCD"}));//uppercase is treated as smaller
+
         //mismatch() returns the index of the first element that is different.-1 if the arrays are equal
         System.out.println(Arrays.mismatch(new int[]{1,2}, new int[]{1,2,4}));
 
@@ -72,6 +93,11 @@ public class ArrayDemo {
         //int[]  [] multi = new int[2][2];
         //int[][] multi = new int[2]     [2];
         //int[] multi   [] = new int[2][2];
+        //int[] multi2d [], multi3d [][];  // a 2D AND a 3D array
 
+        //asymmetric multidimensional array
+        int [][] asymulti = new int[4][];
+        asymulti[0] = new int[5];
+        asymulti[1] = new int[3];
     }
 }

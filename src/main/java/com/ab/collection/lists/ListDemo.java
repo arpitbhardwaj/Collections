@@ -6,6 +6,14 @@ import java.util.*;
  * @author Arpit Bhardwaj
  *
  * List are indexed by position
+ *
+ *
+                                                                            toArray()	Arrays.asList()	    List.of()
+Type converting from	                                                    List	    Array (or varargs)	Array (or varargs)
+Type created	                                                            Array	    List	            List
+Allowed to remove values from created object	                            No	        No	                No
+Allowed to change values in the created object	                            Yes	        Yes	                No
+Changing values in the created object affects the original or vice versa.	No	        Yes	                N/A
  */
 public class ListDemo {
     public static void main(String[] args) {
@@ -23,6 +31,7 @@ public class ListDemo {
         colors.add("yellow");
         colors.add("green");
         colors.add("orange");
+        colors.add("violet");
         colors.add(1,"blue");
 
         //set() method changes one of the elements of the ArrayList without changing the size.
@@ -63,12 +72,28 @@ public class ListDemo {
             colors.remove(i);
         }
 
-        System.out.println();
-        colors.forEach(c -> System.out.printf("%s ",c));*/
+        colors.forEach(c -> System.out.printf("%s ",c));
+        System.out.println();*/
+
+        //to remove all elements use below approach
+        /*int n = colors.size();
+        for (int i = 0; i < n; i++) {
+            colors.remove(0);
+        }
+
+        colors.forEach(c -> System.out.printf("%s ",c));
+        System.out.println();*/
 
         //throw ConcurrentModificationException
         /*for (String color:
                 colors) {
+            colors.remove(color);
+        }
+
+        //to avoid ConcurrentModificationException iterate on copy of it
+        List<String> copyList = new ArrayList<>(colors);
+        for (String color:
+                copyList) {
             colors.remove(color);
         }
 
@@ -106,11 +131,12 @@ public class ListDemo {
         System.out.println(Arrays.toString(shapes));
         System.out.println(shapesList.getClass().getName());
 
-        //return a immutable list
+        //return a complete immutable list
         List<String> shapesList2 = List.of(shapes);
 
         System.out.println(shapesList2);
         System.out.println(shapesList2.getClass().getName());
+        //shapesList2.set(1,"hexgon");// throws UnsupportedOperationException
         //shapesList2.add("hexagon");// throws UnsupportedOperationException
         //shapesList2.remove("circle");// throws UnsupportedOperationException
 

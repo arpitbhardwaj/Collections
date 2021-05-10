@@ -1,6 +1,8 @@
 package com.ab.collection.concurrent;
 
+import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
 
 /**
@@ -18,6 +20,9 @@ import java.util.concurrent.CopyOnWriteArrayList;
 public class CopyOnWriteArrayListDemo implements Runnable{
 
     static CopyOnWriteArrayList<String> threadSafeList = new CopyOnWriteArrayList<>();
+
+    List<String> list = new ArrayList<>();
+    List<String> copyOnList = new CopyOnWriteArrayList<>(list);
 
     public static void main(String[] args) throws InterruptedException {
         threadSafeList.add("A");
